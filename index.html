@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playbook - Robot Héroe Avanzado - Sesión 8: ¡Desarrollo Feature Adicional 1!</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; color: #333; line-height: 1.6; }
+        .container { max-width: 1000px; margin: auto; padding: 20px; }
+        .header { background-color: #ffa500; color: white; text-align: center; padding: 10px; } /* Orange Accent */
+        .activity { margin-bottom: 20px; }
+        .banner {
+            background-color: #ffa500; /* Orange Accent */
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+            margin-bottom: 10px;
+            font-weight: bold;
+            /* Added Flexbox for side-by-side layout */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        /* Use details/summary for accordions */
+        details > summary {
+            list-style: none; /* Remove default triangle */
+        }
+        details > summary::-webkit-details-marker {
+            display: none; /* Remove default triangle for Chrome/Safari */
+        }
+        details > summary::marker {
+             display: none; /* Remove default triangle for Firefox */
+        }
+        /* Custom marker logic (optional) */
+        /*
+         details > summary:before {
+            content: '▶ ';
+            margin-right: 5px;
+         }
+         details[open] > summary:before {
+            content: '▼ ';
+         }
+        */
+        .content { display: block; padding: 10px; border: 1px solid #ddd; margin-top: -10px; margin-bottom: 10px; border-top: none;} /* Ensure content is visible by default */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+            vertical-align: top;
+        }
+        span[style*="color: red;"] { /* Keep red span for emphasis */
+            font-weight: bold;
+        }
+         ul, ol {
+            margin-top: 0;
+            margin-bottom: 10px;
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 5px;
+        }
+        .time-title { margin-bottom: 20px; text-align: center; font-size: 1.2em; color: #555;}
+        /* Style for Kanban icons */
+        .kanban-icon { font-size: 1.2em; margin: 0 2px; }
+        .kanban-todo { color: #f0ad4e; } /* Yellow/Orange for To Do */
+        .kanban-doing { color: #5bc0de; } /* Blue for Doing */
+        .kanban-test { color: #d9534f; } /* Red for Test */
+        .kanban-done { color: #5cb85c; } /* Green for Done */
+
+        /* Span styles for title and time in banner */
+        .activity-title {
+            flex-grow: 1; /* Allows title to take available space */
+            padding-right: 10px; /* Add some space between title and time */
+        }
+        .activity-time {
+            white-space: nowrap; /* Prevents time from wrapping */
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Playbook - Robot Héroe Avanzado - Sesión 8: ¡Desarrollo Feature Adicional 1!</h1>
+    </div>
+    <div class="container">
+        <h2 class="time-title">Tiempo efectivo de clase: 40 minutos</h2>
+
+        <!-- Resumen de Sesión -->
+        <details id="activity-0" class="activity">
+            <summary class="banner">
+                <span class="activity-title">📝 Resumen de Sesión</span>
+                <span class="activity-time"></span>
+            </summary>
+            <div class="content">
+                <table>
+                    <tr>
+                        <td style="width: 50%; padding: 10px; border-right: 1px solid #ddd;">
+                            <strong>🎯 Objetivo de la Sesión:</strong>
+                            <ul>
+                                <li>Completar la programación de la primera funcionalidad adicional (Feature 1).</li>
+                                <li>Realizar las pruebas iniciales (unitarias o de integración básica) de la Feature 1.</li>
+                                <li>Identificar y reportar bugs iniciales de la Feature 1.</li>
+                            </ul>
+                            <strong>⏱️ Duración Estimada:</strong> 40 minutos.
+                        </td>
+                        <td style="width: 50%; padding: 10px;">
+                            <strong>🔑 Entregable Clave:</strong>
+                            <ul>
+                                <li>Código de la Feature 1 completado o muy avanzado.</li>
+                                <li>Resultados de pruebas iniciales documentados por el Tester.</li>
+                                <li>Bugs iniciales reportados.</li>
+                                <li>Tarea de la Feature 1 actualizada en el Kanban (potencialmente movida a 🔬 Listo para Probar).</li>
+                            </ul>
+                            <strong>🛠️ Materiales Específicos:</strong>
+                             <ul>
+                                <li>Proyector o pantalla interactiva.</li>
+                                <li>Presentación de diapositivas (Diapositivas 1-5 propuestas).</li>
+                                <li>Tableros Kanban de cada equipo (actualizados de S7).</li>
+                                <li>Computadoras con software de programación, código inicial de Feature 1.</li>
+                                <li>Robots/kits (si la feature requiere hardware).</li>
+                                <li>Plan de pruebas específico para Feature 1 (diseñado en S7).</li>
+                                <li>Documentación del diseño técnico de Feature 1 (de S7).</li>
+                             </ul>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </details>
+
+        <!-- Desarrollo de la Sesión -->
+
+        <!-- Actividad 1: ¡Stand-up de Desarrollo Feature! -->
+        <details id="activity-1" class="activity">
+            <summary class="banner">
+                 <span class="activity-title">🚀 Actividad 1: ¡Stand-up de Desarrollo Feature!</span>
+                 <span class="activity-time">⏰ Tiempo: 5 minutos</span>
+            </summary>
+            <div class="content">
+                <table>
+                    <tr>
+                        <th style="width: 50%;">Acción</th>
+                        <th style="width: 50%;">Diálogo del Maestro</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>Paso 1 (1 min):</strong> Iniciar la sesión, recordando el objetivo de completar Feature 1.
+                            <br><em>(<strong>Proyectar Diapositiva 1:</strong> Título Sesión 8 (Avanzado) + Objetivo: "¡Desarrollo Feature Adicional 1! Objetivo: Completar programación y realizar pruebas iniciales").</em>
+                        </td>
+                        <td>
+                            "¡Equipos, Sesión 8! Hoy continuamos y, idealmente, completamos el desarrollo de nuestra primera Feature Adicional. El objetivo es terminar de programarla y hacer las primeras pruebas para ver cómo funciona."
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>Paso 2 (3 min):</strong> Stand-up rápido enfocado en el progreso y bloqueos de Feature 1.
+                            <br><em>(<strong>Proyectar Diapositiva 2:</strong> Stand-up Desarrollo Feature - Kanban visual con foco en tarea Feature 1 en ⚙️ Haciendo. Preguntas: ¿Progreso código Ing. 💻? ¿Pruebas listas Tester 🧪? ¿Bloqueos?).</em>
+                            <br>Cada miembro relevante (Ing., Tester) comenta brevemente.
+                        </td>
+                        <td>
+                            "Rápido 'Stand-up de Desarrollo'. Miremos la tarea de la Feature 1 en <strong class='kanban-icon kanban-doing'>⚙️ Haciendo</strong>."
+                            <br><br>
+                            "1. <strong>Ingeniero/a (💻):</strong> ¿Cómo avanzaste con el código desde la sesión pasada? ¿Qué te falta para terminar?"
+                            <br>
+                            "2. <strong>Tester (🧪):</strong> ¿Tu plan de pruebas específico para esta feature está listo para ejecutarse?"
+                            <br>
+                            "3. <strong>¿Algún bloqueo</strong> que impida continuar hoy?"
+                            <br><br>
+                            "¡Actualización rápida!" <em>(Moderar la ronda).</em>
+                        </td>
+                    </tr>
+                     <tr>
+                        <td>
+                            <strong>Paso 3 (1 min):</strong> Confirmar el plan de trabajo para la sesión.
+                        </td>
+                        <td>
+                            "¡Ok! Sabemos dónde estamos. Ingenieros/as, a terminar ese código. Testers, prepárense para las primeras pruebas en cuanto esté listo. ¡A trabajar!"
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </details>
+
+        <!-- Actividad 2: ¡Completando el Código de la Feature! -->
+        <details id="activity-2" class="activity">
+            <summary class="banner">
+                 <span class="activity-title">⌨️ Actividad 2: ¡Completando el Código de la Feature!</span>
+                 <span class="activity-time">⏰ Tiempo: 20 minutos</span>
+            </summary>
+            <div class="content">
+                <table>
+                    <tr>
+                        <th style="width: 50%;">Acción</th>
+                        <th style="width: 50%;">Diálogo del Maestro</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>Paso 1 (2 min):</strong> Enfocar al Ingeniero/a en terminar la programación.
+                            <br><em>(<strong>Proyectar Diapositiva 3:</strong> Completando Código Feature 1 - Rol principal: Ing. 💻. Foco: Terminar programación según diseño S7. Arq. T. 📐 apoya / revisa. Tester 🧪 finaliza preparación pruebas).</em>
+                        </td>
+                        <td>
+                            "Fase principal de hoy: ¡Completar el Código de la Feature 1!"
+                            <br><br>
+                            "▶️ <strong>Ingeniero/a (💻):</strong> ¡Máxima concentración! Tu objetivo es terminar de programar la funcionalidad adicional, siguiendo el diseño técnico que hicieron en la Sesión 7. Si tienes dudas, consulta con el Arquitecto/a T."
+                            <br>
+                            "▶️ <strong>Tester (🧪):</strong> Mientras el Ingeniero/a finaliza, asegúrate de tener tu plan de pruebas 100% listo y el entorno preparado si es necesario."
+                            <br>
+                            "▶️ <strong>Arquitecto/a T. (📐):</strong> Apoya al Ingeniero/a, revisa que el código se alinee con el diseño y piensa en cómo esta feature podría interactuar con el núcleo (para futuras pruebas)."
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>Paso 2 (18 min):</strong> Ingeniero/a trabaja en finalizar el código. Tester prepara/refina pruebas. Arq. T. apoya.
+                            <br>Circular activamente, apoyando principalmente al Ingeniero/a con la finalización del código.
+                            <br>Resolver dudas de implementación o lógica.
+                            <br>Verificar que el Tester está listo para probar.
+                        </td>
+                        <td>
+                            "¡Adelante! Tienen 18 minutos para este sprint final de codificación."
+                            <br><br>
+                            <em>(Mientras circulas):</em>
+                            "Ingeniero/a, ¿cómo vas con esa última parte de la lógica? ¿Necesitas ayuda para depurar algo?"
+                            "Tester, ¿todo listo por tu lado para cuando el código esté?"
+                            "Arquitecto/a T., ¿el enfoque de implementación sigue siendo coherente?"
+                            "¡Casi lo tienes, Ingeniero/a! Recuerda guardar y comentar tu código si es necesario."
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </details>
+
+        <!-- Actividad 3: ¡Pruebas Iniciales Feature 1! -->
+        <details id="activity-3" class="activity">
+            <summary class="banner">
+                 <span class="activity-title">🔬 Actividad 3: ¡Pruebas Iniciales Feature 1!</span>
+                 <span class="activity-time">⏰ Tiempo: 10 minutos</span>
+            </summary>
+            <div class="content">
+                <table>
+                    <tr>
+                        <th style="width: 50%;">Acción</th>
+                        <th style="width: 50%;">Diálogo del Maestro</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>Paso 1 (2 min):</strong> Transición a la fase de pruebas iniciales.
+                            <br><em>(<strong>Proyectar Diapositiva 4:</strong> Pruebas Iniciales Feature 1 - Rol principal: Tester 🧪. Foco: Ejecutar pruebas diseñadas (aisladas o integradas). Reportar bugs iniciales. Ing. 💻 observa/anota bugs).</em>
+                        </td>
+                        <td>
+                            "¡Tiempo de pruebas iniciales! Ingeniero/a, si has terminado el código (o una parte significativa), es momento de que el Tester haga la primera verificación."
+                            <br><br>
+                            "<strong>Tester (🧪):</strong> ¡Tu turno! Ejecuta las pruebas que diseñaste específicamente para esta Feature 1. Intenta probarla de la forma más aislada posible al principio, si el diseño lo permite. Si no, pruébala integrada con el núcleo."
+                            <br>
+                            "Tu misión ahora es encontrar los <span style='color: red;'>bugs iniciales</span>. ¿Hace lo que se supone? ¿Hay errores obvios?"
+                            <br>
+                            "<strong>Ingeniero/a (💻):</strong> Observa las pruebas y anota cuidadosamente cualquier bug que el Tester reporte."
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>Paso 2 (8 min):</strong> Tester ejecuta pruebas. Reporta bugs. Ingeniero/a anota (y puede intentar correcciones rápidas si hay tiempo y son simples).
+                            <br>Facilitar la ejecución de pruebas y el reporte de bugs.
+                            <br>Ayudar a clarificar los bugs encontrados.
+                            <br>Gestionar el tiempo para asegurar que se capture la información esencial.
+                        </td>
+                        <td>
+                            "¡A probar esa nueva feature! Tienen 8 minutos."
+                            <br><br>
+                            <em>(Mientras circulas):</em>
+                            "Tester, ¿qué estás observando? ¿Se comporta como esperabas según el diseño?"
+                            "¡Buen hallazgo ese bug! Asegúrate de describirlo bien para el Ingeniero/a."
+                            "Ingeniero/a, ¿entiendes el bug reportado? Anótalo bien. Si es algo muy rápido de corregir, puedes intentarlo ahora, si no, lo dejamos registrado para la fase de corrección."
+                            "El objetivo ahora es identificar los problemas iniciales."
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </details>
+
+        <!-- Actividad 4: ¡Estado de la Feature 1! -->
+        <details id="activity-4" class="activity">
+            <summary class="banner">
+                 <span class="activity-title">📊 Actividad 4: ¡Estado de la Feature 1!</span>
+                 <span class="activity-time">⏰ Tiempo: 5 minutos</span>
+            </summary>
+            <div class="content">
+                <table>
+                     <tr>
+                        <th style="width: 50%;">Acción</th>
+                        <th style="width: 50%;">Diálogo del Maestro</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>Paso 1 (3 min):</strong> Aplicar el Kanban Flow y revisar el estado final.
+                            <br><em>(<strong>Proyectar Diapositiva 5:</strong> Estado Feature 1 - Kanban S8. Decisión: ¿Código completo y listo para pruebas más exhaustivas? -> Mover a 🔬 | ¿Aún con bugs importantes o incompleto? -> Sigue en ⚙️. Pregunta: ¿Lista para pruebas exhaustivas S9?).</em>
+                            <br>Guiar al equipo a decidir si mueven la tarea a "Listo para Probar" o la mantienen en "Haciendo".
+                        </td>
+                        <td>
+                            "Última revisión del Kanban para nuestra Feature 1."
+                            <br><br>
+                            "Equipos, discutan brevemente:"
+                            <br>
+                            "1. ¿Se completó la programación principal de la Feature 1?"
+                            <br>
+                            "2. Según las pruebas iniciales, ¿creen que está lista para pasar a pruebas más <span style='color: red;'>exhaustivas</span> en la próxima sesión, aunque tenga bugs menores?"
+                            <br><br>
+                            "<strong>Decisión Kanban:</strong>"
+                            <br>
+                            "- Si la programación está completa y lista para pruebas más a fondo --> Muevan la tarjeta a <strong class='kanban-icon kanban-test'>🔬 Listo para Probar</strong>."
+                            <br>
+                            "- Si todavía falta código importante o hay bugs críticos encontrados hoy que necesitan más trabajo --> La tarjeta se queda en <strong class='kanban-icon kanban-doing'>⚙️ Haciendo</strong>."
+                            <br><br>
+                            "Actualicen su Kanban según su decisión." <em>(Dar tiempo para la decisión y movimiento).</em>
+                        </td>
+                    </tr>
+                     <tr>
+                        <td>
+                            <strong>Paso 2 (2 min):</strong> Cierre de la sesión y anticipación de la Sesión 9 (Calidad Feature 1).
+                        </td>
+                        <td>
+                            "¡Buen trabajo completando (o casi completando) la primera expansión de poderes de su Héroe!"
+                            <br><br>
+                            "Han programado la nueva funcionalidad y realizado las importantísimas pruebas iniciales."
+                            <br><br>
+                            "En la Sesión 9, nos dedicaremos a la '¡Calidad Feature Adicional 1!'. Si la tarea está en <strong class='kanban-icon kanban-test'>🔬 Listo para Probar</strong>, el Tester (🧪) ejecutará pruebas exhaustivas para asegurar que funciona bien y se integra correctamente. Si se quedó en <strong class='kanban-icon kanban-doing'>⚙️ Haciendo</strong>, el Ingeniero/a (💻) continuará corrigiendo esos bugs importantes que encontraron hoy."
+                            <br><br>
+                            "¡Guarden su código, notas de bugs y planes de prueba! ¡Nos vemos para asegurar la calidad de la Feature 1!"
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </details>
+
+    </div> <!-- Fin del container -->
+</body>
+</html>
